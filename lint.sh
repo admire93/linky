@@ -13,12 +13,12 @@ if [[ "$VIRTUAL_ENV" = "" ]]; then
 fi
 
 mkdir -p .git/hooks
-if [[ ! -f .git/hooks/pre-commit ]]; then
+if [[ -f .git/hooks/pre-commit ]]; then
   ln -s "$project_root/lint.sh" .git/hooks/pre-commit
 fi
 
 flake8 --exclude '.venv,docs,.tox' "$project_root"
-import-order --exclude=.tox linky .
+import-order --exclude=.tox --exclude=docs --exclude=.venv linky .
 
 exit 0
 

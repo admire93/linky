@@ -30,7 +30,7 @@ def build(protocol, tld, port, host, path, query, fragment):
     for fragment in ('', 'frag')
     for query in ('', 'hello=world', 'hello=world&foo=bar', 'a[0]=a>2')
     for path in ('/', '', '/hello/', 'world.html')
-    for tld  in TLD
+    for tld in TLD
     for port in ('1234', None)
     for host in ('linky', 'one.linky', 'one.two.linky', '192.168.0.1')
     for protocol in ('https', 'http', '')

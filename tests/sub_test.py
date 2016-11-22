@@ -1,6 +1,10 @@
-from pytest import fixture, mark
+# -*- coding: utf-8 -*-
+from linky.sub import linky, url_schema
 
-from linky.sub import URL_REGEXP, linky, url_schema
+
+def fullmatch(pattern, s):
+    m = pattern.match(s)
+    return m and m.group() == s
 
 
 def test_url_scheme_more():
@@ -32,7 +36,7 @@ def test_url_scheme_more():
         u'http://a.b-c.de',
     ]
     for c in correct:
-        assert url_schema.fullmatch(c), c
+        assert fullmatch(url_schema, c), c
     wrong = [
         'http://',
         'http://.',
@@ -61,18 +65,16 @@ def test_url_scheme_more():
         'http://.www.foo.bar./',
     ]
     for w in wrong:
-        assert not url_schema.fullmatch(w), url_schema.findall(w)
+        assert not fullmatch(url_schema, w), w
 
 
 def test_url_scheme(fx_url):
-    assert url_schema.fullmatch(fx_url), fx_url
+    assert fullmatch(url_schema, fx_url), fx_url
 
 
 def test_linky_escape():
     assert linky('hello<>', escape=True) == 'hello&lt;&gt;'
     assert linky('hello<>', escape=False) == 'hello<>'
-    assert isinstance(linky('hello'), str)
-    assert isinstance(linky('hello', False), str)
 
 
 def test_linky_substitude(fx_url):

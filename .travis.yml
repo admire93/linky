@@ -1,10 +1,11 @@
 language: python
 python:
+- 2.7
+- 3.4
 - 3.5
 install:
-- pip install .
-- pip install -e .[tests]
-- pip install import-order
+- pip install tox-travis
+- pip install -e .[dev,tests]
 script:
+- ./lint.sh
 - tox
-- import-order --exclude=.tox import_order .
