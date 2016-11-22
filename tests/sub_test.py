@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from linky.sub import linky, url_schema
+from linkfy.sub import linky, url_schema
 
 
 def fullmatch(pattern, s):

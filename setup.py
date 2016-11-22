@@ -22,7 +22,7 @@ def readme():
 
 
 def get_version():
-    filename = 'linky/__init__.py'
+    filename = 'linkfy/__init__.py'
     with open(filename, 'r') as f:
         tree = ast.parse(f.read(), filename)
         for node in tree.body:
@@ -37,7 +37,7 @@ def get_version():
 
 
 setup(
-    name='linky',
+    name='linkfy',
     version=get_version(),
     packages=find_packages(),
     url='https://github.com/admire93/linky',
