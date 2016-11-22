@@ -14,7 +14,7 @@ if [[ "$VIRTUAL_ENV" = "" ]]; then
   exit 1
 fi
 
-pytest -vv
+pytest -vv -n 16
 
 if [[ "$(which ag)" != "" ]]; then
   ag 'TODO|FIXME' linky

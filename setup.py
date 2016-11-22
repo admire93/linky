@@ -5,6 +5,7 @@ from setuptools import find_packages, setup
 install_requires = ['MarkupSafe >= 0.23']
 tests_require = [
     'pytest >= 2.7.0',
+    'pytest-xdist',
     'tox',
 ]
 dev_require = [
