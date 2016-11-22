@@ -7,7 +7,7 @@ import re
 
 from markupsafe import escape as html_escape
 
-__all__ = 'Element', 'HTMLBuilder', 'linky', 'url_schema'
+__all__ = 'Element', 'HTMLBuilder', 'linkfy', 'url_schema'
 URL_REGEXP = r'(?P<url>' \
     r'(https?\:\/\/)?' \
     r'(www\.)?' \
@@ -43,7 +43,7 @@ class HTMLBuilder(object):
         return functools.partial(Element, name=name)
 
 
-def linky(text, escape=True, **attributes):
+def linkfy(text, escape=True, **attributes):
     html = HTMLBuilder()
     words = []
     skip_parts = 0

@@ -18,7 +18,7 @@ if [[ -f .git/hooks/pre-commit ]]; then
 fi
 
 flake8 --exclude '.venv,docs,.tox' "$project_root"
-import-order --exclude=.tox --exclude=docs --exclude=.venv linky .
+import-order --exclude=.tox --exclude=docs --exclude=.venv linkfy .
 
 exit 0
 
